@@ -4,6 +4,19 @@ set -euo pipefail
 
 echo "🚀 Starting template deployment process..."
 
+# Ensure PyYAML is installed
+echo "🐍 Checking Python dependencies..."
+if ! python3 -c "import yaml" 2>/dev/null; then
+    echo "📦 Installing PyYAML..."
+    pip3 install pyyaml || pip install pyyaml || {
+        echo "❌ Failed to install PyYAML. Please install it manually: pip install pyyaml"
+        exit 1
+    }
+    echo "✅ PyYAML installed successfully"
+else
+    echo "✅ PyYAML is already installed"
+fi
+
 # 1) Generate templates into build/
 echo "🧱 Generating templates into build/..."
 python3 tools/generate_templates.py --clean
