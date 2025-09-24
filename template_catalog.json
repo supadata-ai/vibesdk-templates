@@ -25,6 +25,7 @@
       "typescript",
       "vaul",
       "vite",
+      "wrangler",
       "zod",
       "zustand"
     ],
@@ -59,6 +60,7 @@
       "typescript",
       "vaul",
       "vite",
+      "wrangler",
       "zod",
       "zustand"
     ],
