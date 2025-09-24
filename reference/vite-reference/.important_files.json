@@ -16,5 +16,6 @@
     "src/pages/", 
     "src/vite-env.d.ts",
     "worker/",
-    "wrangler.jsonc"
+    "wrangler.jsonc",
+    "shared/"
 ]
