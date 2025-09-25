@@ -197,7 +197,7 @@ export abstract class Entity<State> {
 }
 
 // Minimal prefix-based index held in its own DO instance.
-export class Index<T extends string> extends Entity<{}> {
+export class Index<T extends string> extends Entity<unknown> {
   static readonly entityName = "sys-index-root";
   static readonly initialState: {} = {};
 
