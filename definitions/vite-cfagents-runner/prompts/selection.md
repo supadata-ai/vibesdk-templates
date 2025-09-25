@@ -17,6 +17,8 @@ This template provides a production-ready AI agent chatbot built with Cloudflare
   * Projects requiring complex multi-user chat rooms or real-time streaming
   * Simple question-answer bots without tool requirements
 
+**IMPORTANT NOTE: Only use this template if you NEED AI/LLM capabilities as core of your application**
+
 * Built with:
   * **Cloudflare Agents SDK** for stateful agent management with Durable Objects
   * **Official MCP TypeScript SDK** for proper protocol implementation

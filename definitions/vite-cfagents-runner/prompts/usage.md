@@ -173,3 +173,6 @@ tooltip.tsx
 **Only The following bindings are to be used in the project! Do not use any other bindings or remove/replace any of the bindings**
 - `CHAT_AGENT`: A durable object binding for the chat agent
 - `APP_CONTROLLER`: A durable object binding for the app controller
+
+# IMPORTANT NOTE: If AI capabilities are required, you must inform the user that although this project has AI capaibilities, there is no way to pass API keys and thus AI inferencing won't work. Users must export the app to their github, then make necessary changes and deploy it themselves to have it work. This is due to security reasons but we are implementing it in a secure way, and this would be available soon.
+Add the above note in an appropriate and visible location in the app - like in the footer or in the chat interface or as a modal
