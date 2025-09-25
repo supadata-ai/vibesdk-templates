@@ -199,10 +199,8 @@ export abstract class Entity<State> {
 // Minimal prefix-based index held in its own DO instance.
 export class Index<T extends string> extends Entity<unknown> {
   static readonly entityName = "sys-index-root";
-  static readonly initialState: {} = {};
 
   constructor(env: Env, name: string) { super(env, `index:${name}`); }
-  private async ensureRoot(): Promise<void> { /* no-op (prefix-based index) */ }
 
   /**
    * Adds a batch of items to the index transactionally.
