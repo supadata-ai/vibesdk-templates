@@ -9,7 +9,7 @@ This template provides a production-ready AI agent chatbot built with Cloudflare
   * Production-ready MCP integration with official TypeScript SDK
   * Real-time conversation management
   * Real-time streaming chat
-  * Advanced AI Agents capabilities and AI based applications
+  * Advanced AI Agents capabilities and AI based applications like image generation, chat bots etc
 
 * Do not use it for:
   * Simple static websites without AI functionality
