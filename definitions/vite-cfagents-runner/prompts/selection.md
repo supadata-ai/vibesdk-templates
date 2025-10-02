@@ -8,7 +8,7 @@ This template provides a production-ready AI agent chatbot built with Cloudflare
   * Multi-model AI support (GPT-4o, Gemini 2.0/2.5, Claude Opus 4)
   * Production-ready MCP integration with official TypeScript SDK
   * Real-time conversation management
-  * Real-time streaming chat
+  * Real-time streaming chat with AI Agents
   * Advanced AI Agents capabilities and AI based applications like image generation, chat bots etc
 
 * Do not use it for:
@@ -17,7 +17,7 @@ This template provides a production-ready AI agent chatbot built with Cloudflare
   * Projects requiring complex multi-user chat rooms or real-time streaming
   * Simple question-answer bots without tool requirements
 
-**IMPORTANT NOTE: Only use this template if you NEED AI/LLM capabilities as core of your application**
+**IMPORTANT NOTE: Only use this template if you NEED AI/LLM capabilities as core of your application. If the requirement is for durable objects, there are much better templates like 'vite-cf-DO-runner' or 'vite-cf-DO-v2-runner'**
 
 * Built with:
   * **Cloudflare Agents SDK** for stateful agent management with Durable Objects

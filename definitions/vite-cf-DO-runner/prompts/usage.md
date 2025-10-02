@@ -96,6 +96,7 @@ async addMyData(item: MyType): Promise<MyType[]> {
 
 ## Bindings
 CRITICAL: only `GlobalDurableObject` is available for stateful ops
+**IMPORTANT: You are NOT ALLOWED to edit/add/remove ANY worker bindings OR touch wrangler.jsonc/wrangler.toml. Build your application around what is already provided.**
 
 **YOU CANNOT**:
 - Modify `wrangler.jsonc` 
