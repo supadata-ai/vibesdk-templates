@@ -84,7 +84,7 @@ export function ErrorFallback({
                 </summary>
                 <pre className="mt-3 text-xs overflow-auto max-h-40 text-muted-foreground">
                   {error.message || error.toString()}
-                  {error.stack && '\n\n' + error.stack}
+                  {error.stack && '\n\n' + error.stack + '\n\n' + error.componentStack}
                 </pre>
               </details>
             )}

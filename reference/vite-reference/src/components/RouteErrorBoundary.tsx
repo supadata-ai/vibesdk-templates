@@ -30,7 +30,6 @@ export function RouteErrorBoundary() {
         message: errorMessage,
         stack: errorStack,
         url: window.location.href,
-        userAgent: navigator.userAgent,
         timestamp: new Date().toISOString(),
         source: 'react-router',
         error: error,

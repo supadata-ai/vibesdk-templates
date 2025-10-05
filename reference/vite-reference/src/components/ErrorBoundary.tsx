@@ -42,7 +42,6 @@ export class ErrorBoundary extends Component<Props, State> {
         componentName: this.constructor.name,
       },
       url: window.location.href,
-      userAgent: navigator.userAgent,
       timestamp: new Date().toISOString(),
       level: "error",
     });

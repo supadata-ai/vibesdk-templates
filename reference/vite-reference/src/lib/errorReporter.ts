@@ -1,6 +1,5 @@
 interface BaseErrorData {
   url: string;
-  userAgent: string;
   timestamp: string;
 }
 
@@ -442,7 +441,6 @@ class ErrorReporter {
   private createBaseErrorData(): BaseErrorData {
     return {
       url: window.location.href,
-      userAgent: navigator.userAgent,
       timestamp: new Date().toISOString(),
     };
   }
@@ -657,7 +655,7 @@ const formatConsoleArgs = (args: unknown[]): string => {
 
 type ImmediatePayload = Pick<
   ErrorReport,
-  "message" | "stack" | "url" | "userAgent" | "timestamp" | "level" | "category"
+  "message" | "stack" | "url" | "timestamp" | "level" | "category"
 >;
 
 const createImmediateErrorPayload = (
@@ -667,7 +665,6 @@ const createImmediateErrorPayload = (
   message,
   stack: new Error().stack,
   url: window.location.href,
-  userAgent: navigator.userAgent,
   timestamp: new Date().toISOString(),
   level,
   category: categorize(message),
