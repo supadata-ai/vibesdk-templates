@@ -25,7 +25,7 @@ There are already several models presupplied with the template along with proper
   * **Real MCP Integration**: Connects to actual MCP servers, not simulated implementations
   * **Cloudflare MCP Servers**: Direct integration with Cloudflare Bindings and Observability servers
   * **Intelligent Tool Usage**: AI automatically detects when to use tools (D1, R2, Workers, Web browsing)
-  * **Multi-Model Support**: Switch between GPT-4o, Gemini 2.0/2.5 Flash/Pro, Claude Opus 4
+  * **Multi-Model Support**: Switch between various models
   * **Production Tools**: Query D1 databases, manage R2 buckets, get Worker analytics
   * **Web Browsing**: Browse and extract content from web pages through MCP server
   * **Persistent Conversations**: Maintains chat history using Durable Objects state in Cloudflare Agents.
@@ -77,35 +77,6 @@ There are already several models presupplied with the template along with proper
   * **`worker/app-controller.ts`**: Control plane durable object for session management
 
 ---
-
-## Available MCP Servers and Tools
-
-The template uses the official MCP SDK with Cloudflare's production servers:
-
-### Cloudflare Documentation MCP Server:
-- Access to Cloudflare documentation and resources
-- Connected via `https://docs.mcp.cloudflare.com/sse`
-
-### Cloudflare Browser MCP Server:
-- Web browsing capabilities through Cloudflare
-- Connected via `https://browser.mcp.cloudflare.com/sse`
-
-### Custom Tools:
-- **`get_weather`** - Weather information (example custom tool)
-
-### MCP Server Integration Example
-
-Adding a new MCP server (in `worker/mcp-client.ts`):
-
-```typescript
-const MCP_SERVERS: MCPServerConfig[] = [
-  {
-    name: 'cloudflare-docs',
-    command: 'npx',
-    args: ['mcp-remote', 'https://docs.mcp.cloudflare.com/sse']
-  },
-];
-```
 
 The system automatically:
 - Connects to MCP servers using proper transport
@@ -168,6 +139,7 @@ tooltip.tsx
 
 # Important Notes
 - Conversations and persistence are already handled by the template. Utilize existing utilities and apis to build something greater.
+- For example, to build a chatgpt clone - You just need to build the frontend and use existing APIs without modifying them.
 
 # Available bindings:
 **Only The following bindings are to be used in the project! Do not use any other bindings or remove/replace any of the bindings**
@@ -175,5 +147,5 @@ tooltip.tsx
 - `APP_CONTROLLER`: A durable object binding for the app controller, but can be extended and used for other agentic purposes
 **IMPORTANT: You are NOT ALLOWED to edit/add/remove ANY worker bindings OR touch wrangler.jsonc/wrangler.toml. Build your application around what is already provided.**
 
-# IMPORTANT NOTE: If AI capabilities are required, you must inform the user that although this project has AI capaibilities, there is no way to pass API keys and thus AI inferencing won't work. Users must export the app to their github, then make necessary changes and deploy it themselves to have it work. This is due to security reasons but we are implementing it in a secure way, and this would be available soon.
+# IMPORTANT NOTE: You must inform the user that although this project has AI capaibilities, There is a limit on the number of requests that can be made to the AI servers across all user apps in a given time period. 
 Add the above note in an appropriate and visible location in the app - like in the footer or in the chat interface or as a modal
