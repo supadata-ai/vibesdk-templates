@@ -1,15 +1,16 @@
 # Template Selection
 
-Modern React SPA starter.
+Modern React SPA starter
 
 Use when:
-- Client-heavy apps with little/no backend
+- Client-side only apps with no backend persistence
 - Static apps, dashboards
 - Simple, fast Vite projects
 
 Avoid when:
 - SEO/SSR landing pages
 - Heavy backend/server needs
+- Data persistence of any kind is required on server side
 
 Built with:
 - React Router, ShadCN UI, Tailwind, Lucide Icons, ESLint, Vite
