@@ -7,6 +7,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 import { Toaster, toast } from '@/components/ui/sonner'
 import type { User, Chat, ChatMessage } from '@shared/types'
 import { api } from '@/lib/api-client'
+import { AppLayout } from '@/components/layout/AppLayout'
 
 export function DemoPage() {
   // Minimal state — small demo for AI to extend
@@ -78,6 +79,7 @@ export function DemoPage() {
   }, [selectedUserId, selectedChatId, text])
 
   return (
+    <AppLayout>
     <main className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4 overflow-hidden relative">
       <ThemeToggle />
 
@@ -159,5 +161,6 @@ export function DemoPage() {
 
       <Toaster richColors closeButton />
     </main>
+    </AppLayout>
   )
 }

@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { chatService, formatTime, renderToolCall, generateSessionTitle, MODELS } from '../lib/chat';
 import type { ChatState, SessionInfo } from '../../worker/types';
+import { AppLayout } from '@/components/layout/AppLayout';
 
 
 export function DemoPage() { // Don't touch this exporting, Its a named export
@@ -200,6 +201,7 @@ export function DemoPage() { // Don't touch this exporting, Its a named export
   };
 
   return (
+    <AppLayout>
     <main className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4 overflow-hidden">
       <Button 
         onClick={() => setIsDark(!isDark)} 
@@ -419,5 +421,6 @@ export function DemoPage() { // Don't touch this exporting, Its a named export
         </form>
       </Card>
     </main>
-  );
+  </AppLayout>
+);
 }

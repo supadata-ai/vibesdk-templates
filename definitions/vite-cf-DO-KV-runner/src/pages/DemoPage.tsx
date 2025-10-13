@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import type { DemoItem, ApiResponse } from '@shared/types';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { AppLayout } from '@/components/layout/AppLayout';
 
 export function DemoPage() {
   const [counter, setCounter] = useState<number>(0);
@@ -39,10 +40,11 @@ export function DemoPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-6">
-      <ThemeToggle />
-      
-      <div className="max-w-4xl mx-auto space-y-6">
+    <AppLayout>
+      <main className="min-h-screen bg-background p-6">
+        <ThemeToggle />
+        
+        <div className="max-w-4xl mx-auto space-y-6">
         <header className="space-y-2">
           <Link to="/">
             <Button variant="ghost" size="sm">
@@ -99,7 +101,7 @@ export function DemoPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </main>
+      </main>
+    </AppLayout>
   );
 }
