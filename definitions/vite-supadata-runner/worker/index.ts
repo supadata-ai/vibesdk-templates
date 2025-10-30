@@ -3,12 +3,8 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { Env } from "./core-utils";
 import { API_RESPONSES } from "./config";
-import { userRoutes, coreRoutes } from "./userRoutes";
-import { ChatAgent } from "./agent";
-import { AppController } from "./app-controller";
-export { ChatAgent, AppController };
+import { userRoutes } from "./userRoutes";
 export interface ClientErrorReport {
   message: string;
   url: string;
@@ -24,7 +20,7 @@ export interface ClientErrorReport {
   error?: unknown;
 }
 
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono();
 
 /** DO NOT TOUCH THE CODE BELOW THIS LINE */
 // Middleware
@@ -40,7 +36,6 @@ app.use(
 );
 
 userRoutes(app);
-coreRoutes(app);
 
 app.get("/api/health", (c) =>
   c.json({
