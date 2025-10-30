@@ -38,7 +38,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/transcript', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -70,7 +70,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/transcript', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -99,7 +99,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/translate', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -129,7 +129,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/video', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -158,7 +158,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/channel', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -187,7 +187,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/videos', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -218,7 +218,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/youtube/playlist', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -247,7 +247,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/web/scrape', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -274,7 +274,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/web/map', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
@@ -301,7 +301,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     app.post('/api/supadata/web/crawl', async (c) => {
         try {
             const e = await c.req.json();
-            // DON'T DELETE THIS PART. DO NOT GET APIKEY FROM ENV.
+            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             const apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
