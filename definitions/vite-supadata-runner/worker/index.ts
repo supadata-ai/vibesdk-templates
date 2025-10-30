@@ -5,6 +5,8 @@ import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { API_RESPONSES } from "./config";
 import { userRoutes } from "./userRoutes";
+import { AppController } from "./app-controller";
+export { AppController };
 export interface ClientErrorReport {
   message: string;
   url: string;
