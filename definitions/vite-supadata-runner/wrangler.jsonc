@@ -2,7 +2,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "vite-cfagents-runner",
 	"main": "worker/index.ts",
-	"compatibility_date": "2025-08-10",
+	"compatibility_date": "2025-10-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"durable_objects": {
 		"bindings": [
@@ -24,9 +24,5 @@
 	},
 	"observability": {
 		"enabled": true
-	},
-	"vars": {
-		"CF_AI_BASE_URL": "https://gateway.ai.cloudflare.com/v1/YOUR_ACCOUNT_ID/YOUR_GATEWAY_ID/openai",
-		"CF_AI_API_KEY": "your-cloudflare-api-key"
 	}
 }
