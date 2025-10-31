@@ -2,7 +2,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "vite-cfagents-runner",
 	"main": "worker/index.ts",
-	"compatibility_date": "2025-04-24",
+	"compatibility_date": "2025-08-10",
 	"compatibility_flags": ["nodejs_compat"],
 	"durable_objects": {
 		"bindings": [

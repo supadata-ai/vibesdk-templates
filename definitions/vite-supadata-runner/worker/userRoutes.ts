@@ -36,10 +36,12 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
      * POST /api/supadata/transcript
      */
     app.post('/api/supadata/transcript', async (c) => {
+        let apiKey = ''
+        let e = {} as any
         try {
-            const e = await c.req.json();
+            e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            apiKey = await getUserAPIKey(c.req);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -54,11 +56,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return transcriptResult
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -83,11 +85,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return transcriptResult
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -113,11 +115,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return translated
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -142,11 +144,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return res
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -171,11 +173,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return res
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -202,11 +204,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return res
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -231,11 +233,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return res
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -258,11 +260,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             const webContent: Scrape = await supadata.web.scrape(e.url);
 
             return webContent
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -285,11 +287,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             const siteMap: Map = await supadata.web.map(e.url);
 
             return siteMap
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
@@ -315,11 +317,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
             });
 
             return crawl
-        } catch (error) {
+        } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
                 success: false,
-                error: API_RESPONSES.INTERNAL_ERROR
+                error: error.message
             }, { status: 500 });
         }
     });
