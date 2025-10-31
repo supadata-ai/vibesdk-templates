@@ -40,10 +40,20 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
     app.post('/api/supadata/transcript', async (c) => {
         let apiKey = ''
         let e = {} as any
+        const cookie = getCookie(c)
+        try {
+              // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
+            apiKey = await getUserAPIKey(c);
+        } catch(e: any) {
+            return c.json({
+                success: false,
+                cookie,
+                error: e.message
+            }, { status: 501 });
+        }
         try {
             e = await c.req.json();
-            // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            apiKey = await getUserAPIKey(c);
+          
 
             // Initialize the client
             const supadata = new Supadata({
