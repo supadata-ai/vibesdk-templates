@@ -1,5 +1,8 @@
 import { Hono } from "hono";
 import {
+  getCookie,
+} from 'hono/cookie'
+import {
   Crawl,
   CrawlJob,
   JobResult,
@@ -13,14 +16,13 @@ import {
   YoutubeVideo,
 } from '@supadata/js';
 import { API_RESPONSES } from './config';
-import { Env, getAppController, registerSession, unregisterSession } from "./core-utils";
 
 async function getUserAPIKey(request: any) {
     const res = await fetch(`https://dash.supadata.ai/api/get-api-key`, {
     headers: {
         'Content-Type': 'application/json',
         // If this API is called in the Cloudflare Worker, Cookie need to be passed.
-        'Cookie': request.headers.get('Cookie') || ''
+        'Cookie': getCookie(request)
     }
     })
 
@@ -29,7 +31,7 @@ async function getUserAPIKey(request: any) {
     return apiKey
 }
 
-export function userRoutes(app: Hono<{ Bindings: Env }>) {
+export function userRoutes(app: Hono<{ Bindings: any }>) {
     // Add your routes here
     /**
      * Get transcript from any supported platform (YouTube, TikTok, Instagram, Twitter) or file
@@ -41,7 +43,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            apiKey = await getUserAPIKey(c.req);
+            apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -73,7 +75,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -102,7 +104,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -132,7 +134,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -161,7 +163,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -190,7 +192,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -221,7 +223,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -250,7 +252,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -277,7 +279,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
@@ -304,7 +306,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         try {
             const e = await c.req.json();
             // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
-            const apiKey = await getUserAPIKey(c.req);
+            const apiKey = await getUserAPIKey(c);
 
             // Initialize the client
             const supadata = new Supadata({
