@@ -1,8 +1,5 @@
 import { Hono } from "hono";
 import {
-  getCookie,
-} from 'hono/cookie'
-import {
   Crawl,
   CrawlJob,
   JobResult,
@@ -15,14 +12,13 @@ import {
   YoutubePlaylist,
   YoutubeVideo,
 } from '@supadata/js';
-import { API_RESPONSES } from './config';
 
-async function getUserAPIKey(request: any) {
+async function getUserAPIKey(c: any) {
     const res = await fetch(`https://dash.supadata.ai/api/get-api-key`, {
     headers: {
         'Content-Type': 'application/json',
         // If this API is called in the Cloudflare Worker, Cookie need to be passed.
-        'Cookie': getCookie(request)
+        'Cookie': c.req.header('Cookie')
     }
     })
 
@@ -40,7 +36,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
     app.post('/api/supadata/transcript', async (c) => {
         let apiKey = ''
         let e = {} as any
-        const cookie = getCookie(c)
+        const cookie = c.req.header('Cookie')
         try {
               // GET API KEY BY THIS METHOD. DO NOT GET API KEY FROM ENV.
             apiKey = await getUserAPIKey(c);
