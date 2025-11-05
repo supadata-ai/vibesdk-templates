@@ -52,7 +52,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 mode: 'auto', // optional: 'native', 'auto', or 'generate'
             });
 
-            return transcriptResult
+            return c.json({ success: true, data: transcriptResult });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -81,7 +81,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 url: e.url,
             });
 
-            return transcriptResult
+            return c.json({ success: true, data: transcriptResult });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -111,7 +111,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 lang: 'es',
             });
 
-            return translated
+            return c.json({ success: true, data: translated });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -140,7 +140,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 id: e.videoId,
             });
 
-            return res
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -169,7 +169,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 id: e.videoId,
             });
 
-            return res
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -200,7 +200,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 limit: e.limit || 10,
             });
 
-            return res
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -229,7 +229,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 id: e.videoId, // can be url or playlist id
             });
 
-            return res
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
