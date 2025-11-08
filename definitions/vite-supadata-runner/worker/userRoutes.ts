@@ -8,6 +8,7 @@ import {
   type YoutubeVideo,
 } from '@supadata/js';
 
+// DO NOT DELETE THIS PART
 async function getUserAPIKey(c: any) {
     const res = await fetch(`https://dash.supadata.ai/api/get-api-key`, {
     headers: {
