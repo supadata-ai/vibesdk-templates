@@ -8,14 +8,14 @@ import {
   type YoutubeVideo,
 } from '@supadata/js';
 
-// DO NOT DELETE THIS PART
+// DO NOT DELETE OR UPDATE THIS FUNCTION
 async function getUserAPIKey(c: any) {
     const res = await fetch(`https://dash.supadata.ai/api/get-api-key`, {
-    headers: {
-        'Content-Type': 'application/json',
-        // If this API is called in the Cloudflare Worker, Cookie need to be passed.
-        'Cookie': c.req.header('Cookie')
-    }
+        headers: {
+            'Content-Type': 'application/json',
+            // If this API is called in the Cloudflare Worker, Cookie need to be passed.
+            'Cookie': c.req.header('Cookie')
+        }
     })
 
     const data = await res.json()
