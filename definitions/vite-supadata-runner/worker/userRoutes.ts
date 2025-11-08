@@ -1,16 +1,11 @@
 import { Hono } from "hono";
 import {
-  Crawl,
-  CrawlJob,
-  JobResult,
   Map,
   Scrape,
   Supadata,
   Transcript,
-  TranscriptOrJobId,
-  YoutubeChannel,
-  YoutubePlaylist,
-  YoutubeVideo,
+  type TranscriptOrJobId,
+  type YoutubeVideo,
 } from '@supadata/js';
 
 async function getUserAPIKey(c: any) {
@@ -45,14 +40,14 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 apiKey,
             });
 
-            const transcriptResult = await supadata.transcript({
+            const res: TranscriptOrJobId = await supadata.transcript({
                 url: e.url,
                 lang: 'en', // optional
                 text: true, // optional: return plain text instead of timestamped chunks
                 mode: 'auto', // optional: 'native', 'auto', or 'generate'
             });
 
-            return c.json({ success: true, data: transcriptResult });
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -77,11 +72,11 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 apiKey,
             });
 
-            const transcriptResult: Transcript = await supadata.youtube.transcript({
+            const res: Transcript = await supadata.youtube.transcript({
                 url: e.url,
             });
 
-            return c.json({ success: true, data: transcriptResult });
+            return c.json({ success: true, data: res });
         } catch (error: any) {
             console.error('Supdata routing error:', error);
             return c.json({
@@ -136,7 +131,7 @@ export function userRoutes(app: Hono<{ Bindings: any }>) {
                 apiKey,
             });
 
-            const res = await supadata.youtube.video({
+            const res: YoutubeVideo = await supadata.youtube.video({
                 id: e.videoId,
             });
 
